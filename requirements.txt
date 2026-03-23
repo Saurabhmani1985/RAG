@@ -1,0 +1,43 @@
+# ── FastAPI & Server ──────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+python-multipart==0.0.9
+
+# ── Pydantic ──────────────────────────────────────────────────
+pydantic==2.7.1
+pydantic-settings==2.3.0
+
+# ── PDF Parsing ───────────────────────────────────────────────
+PyMuPDF==1.24.5          # fitz: text + image extraction
+pdfplumber==0.11.0       # table extraction
+
+# ── Embeddings (runs locally — no external API) ───────────────
+sentence-transformers==3.0.1
+transformers==4.41.2
+torch==2.3.1             # CPU; swap for torch+cu121 for CUDA
+
+# ── Vector Store ──────────────────────────────────────────────
+chromadb==0.5.3
+
+# ── LLM + Vision (Anthropic Claude) ──────────────────────────
+anthropic==0.28.0
+
+# ── Image Processing ─────────────────────────────────────────
+Pillow==10.3.0
+
+# ── Text Utilities ────────────────────────────────────────────
+tiktoken==0.7.0
+langchain-text-splitters==0.2.2
+
+# ── Utilities ────────────────────────────────────────────────
+python-dotenv==1.0.1
+tenacity==8.3.0
+numpy==1.26.4
+tqdm==4.66.4
+aiofiles==23.2.1
+python-dateutil==2.9.0
+
+# ── Testing ───────────────────────────────────────────────────
+pytest==8.2.2
+pytest-asyncio==0.23.7
+httpx==0.27.0

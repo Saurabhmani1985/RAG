@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SKIP_MODEL_DOWNLOAD: "0"
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Persist the ChromaDB vector store between container restarts
+      - chroma_data:/app/data/chroma
+      # Mount sample documents for easy ingestion testing
+      - ./sample_documents:/app/sample_documents:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+    driver: local
